@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacuum Chamber</title>
+</head>
+
+<body>
+    <!-- <div class='bg'></div> -->
+    <div class="container">
+        <div class="text-block"> 
+            <h4 style="text-align: center; font-size: x-large; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;">PH203<br>Assignment</h4>
+          </div>
+        <h2 style="color:white; text-align: center; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;">Throughput and Pumping Speed In A Vacuum Chamber</h2>
+        <button id='suction' style="color:white">Suction Chamber</button>
+        <button id='gas'>Gas Equation</button>
+        <div class="text-name"> 
+            <h3 style="text-align: center; font-size: x-large; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;">Vedant Vinod Wagh<br>1901MM36</h3>
+          </div>
+    </div>
+    <div class="dialog dialogG">
+        <div class="top">
+            <span id="enter" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;">Enter the Inputs</span>
+            <span class='cross crossG'>×</span>
+        </div>
+        <ul>
+            <li><span>Moles Of Gas</span><input type = "number"></li>
+            </li>
+            <li><span>Pressure (in Pa)</span><input type = "number"></li>
+            <li><span>Temperature (in K)</span><input type = "number"></li>
+            <li><span>Time (s)</span><input type = "number"></li>
+        </ul>
+        <button id='calcG' style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;">Calculate</button>
+        <div class="final finalG">
+            <div class="caption">
+                <p style="text-align:right">Calculated Throughput</p>
+                <p style="text-align:left">Calculated Pumping speed</p>
+            </div>
+            <div class="g">
+                <div class="g1">lorem ipsum lorem ipsum lorem ipsum</div>
+                <div class="g2">lorem ipsum lorem ipsum lorem ipsum</div>
+            </div>
+        </div>
+    </div>
+    <div class="dialog dialogS">
+        <div class="top">
+            <span id="enter" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;">Enter the Inputs</span>
+            <span class='cross crossS'>×</span>
+        </div>
+        <ul>
+            <li><span>Rotational Speed</span><input type="number"></li>
+            </li>
+            <li><span>Input Pressure (in Pa)</span><input type="number"></li>
+            <li><span>Output Pressure (in Pa)</span><input type="number"></li>
+            <li><span>Dead Space Volume (in m<sup>3</sup>)</span><input type="number"></li>
+            <li><span>Suction Chamber Volume (in m<sup>3</sup>)</span><input type="number"></li>
+        </ul>
+        <button id='calcS'>Calculate</button>
+        <div class="final finalS">
+            <div class="caption">
+                <p>Calculated Throughput</p>
+                <p>Calculated Pumping Speed</p>
+            </div>
+            <div class="g">
+                <div class="g1">lorem ipsum lorem ipsum lorem ipsum</div>
+                <div class="g2">lorem ipsum lorem ipsum lorem ipsum</div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
+    }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+    
+    .bg {
+        background: #000;
+        opacity: 0.4;
+        width: 100vh;
+        height: 100vh;
+    }
+
+    #suction {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: large;
+    }
+
+    .text-block {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  height: 100px;
+  margin-top: -25px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.text-name {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 100px;
+  margin-top: 0px;
+  border-radius: 20px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+    #gas {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        border: none;
+        font-size: large;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;
+    }
+
+    li span{
+        font-size: large;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;
+    }
+
+    li input{
+        font-size: large;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;
+    }
+
+    #calcS {
+        background-color: rgba(0, 0, 0, 0);
+        color: black;
+        border-color: black;
+        border-radius: 20px;
+    }
+
+    #calcG {
+        background-color: rgba(0, 0, 0, 0);
+        color: black;
+        border-color: black;
+        border-radius: 20px;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        font-size: 40px;
+    }
+    #enter {
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+
+    .cross {
+        color: black;
+    }
+    .dialog {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 20px;
+        border: 5px solid rgba(0, 0, 0, 0.349);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        background: white;
+        z-index: 999;
+    }
+    .dialogS {
+        display: none;
+        background-color: white;
+        color: black;
+        border-color: white;
+        border-radius: 30px;
+    }
+    .dialogG {
+        display: none;
+        background-color: white;
+        color: black;
+        border-color: white;
+        border-radius: 30px;
+    }
+
+    input {
+        background-color: rgba(0, 0, 0, 0);
+        color: black;
+        border-color: black;
+        border: 2px solid;
+        border-radius: 10px;
+        font-size: 1.2rem;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    p {
+        display: block;
+        margin: 0;
+    }
+    #dialogS button {
+        font-size: 25px;
+    }
+    .final {
+        display: none;
+        flex-direction: column;
+    }
+    .caption {
+        display: flex;
+        justify-content: space-around;
+    }
+    .g {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .g1, .g2 {
+        border: 2px solid black;
+        margin: 8px;
+        padding: 20px;
+    }
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        width: 85%;
+        font-size: 20px;
+    }
+
+    button {
+        padding: 20px 30px;
+        font-size: 30px;
+        margin: 20px;
+        border-radius: 20px;
+    }
+
+    span {
+        margin-right: 10px;
+    }
+    input {
+        margin-right: 10px;
+    }
+    h1 {
+        position: absolute;
+        font-size: 50px;
+        top: 20vh;
+    }
+    h2 {
+        position: absolute;
+        font-size: 30px;
+        top: 6vh;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    @media only screen and (max-width: 450px) {
+        .container {
+            justify-content: flex-end;
+            flex-direction: column;
+
+        }
+        button {
+            position: relative;
+            bottom: 20vh;
+        }
+    }
+</style>
+<script>
+    var sucBtn = document.getElementById('suction')
+    var gasBtn = document.getElementById('gas')
+    var dialogS = document.querySelector('.dialogS')
+    var dialogG = document.querySelector('.dialogG')
+    var crossS = document.querySelector('.crossS')
+    var crossG = document.querySelector('.crossG')
+    var calcG = document.getElementById('calcG')
+    var calcS = document.getElementById('calcS')
+
+    function gas_equation(){
+        try{
+            var inputs = dialogG.querySelectorAll('input');
+            if(inputs[1].value == 0) throw "Pressure can't be zero";
+            if(inputs[3].value == 0) throw "Time can't be zero";
+            var Q = (inputs[0].value*8.314*inputs[2].value)/inputs[3].value;
+            var S = Q/inputs[1].value;
+            dialogG.querySelector('.finalG').style.display = 'flex';
+            dialogG.querySelector('.g1').textContent = Q+" W";
+            dialogG.querySelector('.g2').textContent = S+" m3/s";
+        }
+        catch(err){
+            MessageChannel.innerHTML = "Invalid Input:" + err;
+            window.alert("Invalid Input: "+err);
+        }
+    }
+    function suction_chamber(){
+        try{
+            var inputs = dialogS.querySelectorAll('input');
+            if(inputs[1].value == 0) throw "Input Pressure can't be zero";
+            var Q = inputs[0].value*(inputs[4].value*inputs[1].value-inputs[3].value*inputs[2].value)
+            var S = Q/inputs[1].value
+            dialogS.querySelector('.finalS').style.display = 'flex';
+            dialogS.querySelector('.g1').textContent = Q+" W";
+            dialogS.querySelector('.g2').textContent = S+" m3/s";
+        }
+        catch(err){
+            MessageChannel.innerHTML = "Invalid Input:" + err;
+            window.alert("Invalid Input: "+err);
+        }
+    }
+
+    sucBtn.addEventListener('click', function() {
+        dialogS.style.display = 'flex';
+    })
+    crossS.addEventListener('click', function(){
+        dialogS.style.display = 'none';
+        dialogS.querySelector('.finalS').style.display = 'none';
+    })
+    gasBtn.addEventListener('click', function() {
+        dialogG.style.display = 'flex';
+    })
+    crossG.addEventListener('click', function(){
+        dialogG.style.display = 'none';
+        dialogG.querySelector('.finalG').style.display = 'none';
+    })
+    calcG.addEventListener('click',function(){
+        gas_equation();
+    })
+    calcS.addEventListener('click',function(){
+        suction_chamber();
+    })
+</script>
+</html>
